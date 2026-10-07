@@ -1,0 +1,11 @@
+# The source notebook records Python 3.11.9 but no package version lock.
+# These are its direct runtime dependencies; exact historical versions are unknown.
+numpy
+pandas
+matplotlib
+requests
+pandas-market-calendars
+alpaca-py
+torch
+scikit-learn
+jupyterlab

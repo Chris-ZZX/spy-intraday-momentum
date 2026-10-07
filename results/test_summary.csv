@@ -1,0 +1,11 @@
+period,strategy,days,total_return,annual_return,annual_volatility,sharpe,max_drawdown,source_cell_index
+test,Opposite band,584,0.2805,0.1126,0.1017,1.100,-0.0893,124
+test,Band + VWAP,584,0.3263,0.1296,0.0715,1.740,-0.0467,124
+test,Band + VWAP + Vol target,584,0.838,0.3004,0.1349,2.015,-0.0995,124
+test,Ridge return filter,584,0.5726,0.2158,0.1137,1.775,-0.0711,124
+test,TCN return filter,584,0.838,0.3004,0.1349,2.015,-0.0995,124
+test,SPY buy & hold,584,0.0937,0.0394,0.186,0.301,-0.245,124
+test,Vol target + ER filter,584,0.838,0.3004,0.1349,2.015,-0.0995,70
+test,Constant 50%,584,0.3625,0.1428,0.0674,2.015,-0.0506,96
+test,Constant matched allocation,584,0.4336,0.1682,0.0787,2.015,-0.0589,96
+test,LSTM risk allocation,584,0.5105,0.1948,0.0926,1.969,-0.0759,96

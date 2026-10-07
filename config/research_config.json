@@ -1,0 +1,148 @@
+{
+  "description": "Parameters read from notebook source without execution.",
+  "execution_note": "This is a reference snapshot. Edit Strategy.ipynb to change a run.",
+  "parameters": {
+    "ANALYSIS_START": {
+      "value": "2016-03-01",
+      "source_cell_index": 3
+    },
+    "COMMISSION_PER_SHARE": {
+      "value": 0.0035,
+      "source_cell_index": 31
+    },
+    "DATA_START": {
+      "value": "2016-01-04",
+      "source_cell_index": 3
+    },
+    "DL_DEVICE": {
+      "value": "cpu",
+      "source_cell_index": 76
+    },
+    "DL_EPOCHS": {
+      "value": 80,
+      "source_cell_index": 76
+    },
+    "DL_HIDDEN": {
+      "value": 16,
+      "source_cell_index": 76
+    },
+    "DL_LEARNING_RATE": {
+      "value": 0.001,
+      "source_cell_index": 76
+    },
+    "DL_PATIENCE": {
+      "value": 15,
+      "source_cell_index": 76
+    },
+    "DL_SEED": {
+      "value": 42,
+      "source_cell_index": 76
+    },
+    "DL_SEQUENCE": {
+      "value": 20,
+      "source_cell_index": 76
+    },
+    "DL_VALIDATION_START": {
+      "value": "2021-01-01",
+      "source_cell_index": 76
+    },
+    "DL_WEIGHT_DECAY": {
+      "value": 0.001,
+      "source_cell_index": 76
+    },
+    "END_DATE": {
+      "value": "2024-04-30",
+      "source_cell_index": 3
+    },
+    "ER_MIN_ACTIVE_DAYS": {
+      "value": 20,
+      "source_cell_index": 62
+    },
+    "ER_THRESHOLDS": {
+      "value": [
+        0.0,
+        0.2,
+        0.4,
+        0.6
+      ],
+      "source_cell_index": 62
+    },
+    "ER_VALIDATION_START": {
+      "value": "2021-01-01",
+      "source_cell_index": 62
+    },
+    "ER_WINDOW": {
+      "value": 30,
+      "source_cell_index": 62
+    },
+    "INITIAL_CASH": {
+      "value": 100000.0,
+      "source_cell_index": 31
+    },
+    "LOOKBACK": {
+      "value": 14,
+      "source_cell_index": 21
+    },
+    "MAX_LEVERAGE": {
+      "value": 4.0,
+      "source_cell_index": 51
+    },
+    "NY": {
+      "value": "America/New_York",
+      "source_cell_index": 3
+    },
+    "OVERWRITE": {
+      "value": false,
+      "source_cell_index": 3
+    },
+    "SLIPPAGE_PER_SHARE": {
+      "value": 0.001,
+      "source_cell_index": 31
+    },
+    "SYMBOL": {
+      "value": "SPY",
+      "source_cell_index": 3
+    },
+    "TCN_MIN_ACTIVE_DAYS": {
+      "value": 20,
+      "source_cell_index": 102
+    },
+    "TCN_SEED": {
+      "value": 42,
+      "source_cell_index": 102
+    },
+    "TCN_THRESHOLDS": {
+      "value": [
+        null,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "source_cell_index": 102
+    },
+    "TCN_VALIDATION_START": {
+      "value": "2021-01-01",
+      "source_cell_index": 102
+    },
+    "TCN_WINDOW": {
+      "value": 30,
+      "source_cell_index": 102
+    },
+    "TRAIN_END": {
+      "value": "2021-12-31",
+      "source_cell_index": 3
+    },
+    "VOL_LOOKBACK": {
+      "value": 14,
+      "source_cell_index": 51
+    },
+    "VOL_MULTIPLIER": {
+      "value": 1.0,
+      "source_cell_index": 21
+    },
+    "VOL_TARGET_DAILY": {
+      "value": 0.02,
+      "source_cell_index": 51
+    }
+  }
+}
