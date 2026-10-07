@@ -39,13 +39,23 @@ The implemented anchors use `prev_close_raw`. The separately calculated ex-divid
 Section 3, pp. 9–10, describes half-hour decisions, opposite-band exits/reversals and intraday-only positions. Code cells 31–41 implement this first stage. At eligible completed bars ending at :00 or :30 before the close:
 
 ```math
-d_{t,\tau}=\begin{cases}
-+1,&C_{t,\tau}>UB_{t,\tau},\\
--1,&C_{t,\tau}<LB_{t,\tau},\\
-d_{t,\tau^{-}},&\text{inside the noise area}.
+d_{t,\tau}=
+\begin{cases}
++1, & C_{t,\tau}>UB_{t,\tau}, \\
+-1, & C_{t,\tau}<LB_{t,\tau}, \\
+d_{t,\tau^{-}}, & \text{inside the noise area}.
+\end{cases}
 ```
 
-Positions start flat each day. Invalid bounds select flat rather than manufacturing a signal. Fixed-size daily shares are $Q_t=\lfloor E_{t-1}/O_t\rfloor$; the quantity remains fixed within that day.
+Positions start flat each day. When the noise bounds are unavailable, the strategy selects a flat position.
+
+Fixed-size daily shares are calculated as:
+
+```math
+Q_t=\left\lfloor\frac{E_{t-1}}{O_t}\right\rfloor
+```
+
+Here, the previous session's ending equity is divided by the current session's opening price and rounded down to an integer number of shares. The quantity remains fixed within that day.
 
 The notebook evaluates completed-bar closes and uses the **next minute's open** as the fill reference. Final liquidation uses the last regular-session minute's close. These are explicit execution assumptions of this implementation.
 
