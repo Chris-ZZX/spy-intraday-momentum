@@ -8,29 +8,29 @@ The paper describes SPY minute data and VIX in Section 2, p. 6. The notebook's d
 
 Only regular-session minutes enter the strategy. A source bar timestamp denotes the minute's start; `bar_end_ny` adds one minute. Missing prices are not forward-filled. HLC3 and volume provide a cumulative intraday VWAP approximation:
 
-$$
+```math
 \widetilde{VWAP}_{t,\tau}
 =\frac{\sum_{u\le\tau}[(H_{t,u}+L_{t,u}+C_{t,u})/3]V_{t,u}}
 {\sum_{u\le\tau}V_{t,u}}.
-$$
+```
 
 Section 3, pp. 6–8, defines typical absolute movement from the open at each intraday time. Code cells 21–27 implement a shift followed by a 14-session rolling mean on the **complete trading calendar**:
 
-$$
+```math
 \widehat{\sigma}^{noise}_{t,\tau}
 =\frac{1}{14}\sum_{i=1}^{14}
 \left|\frac{C_{t-i,\tau}}{O_{t-i}}-1\right|.
-$$
+```
 
 The quantity is a mean absolute move, not a return standard deviation. For volatility multiplier $m=1$, the overnight-gap anchors produce:
 
-$$
+```math
 UB_{t,\tau}=\max(O_t,C_{t-1})[1+m\widehat{\sigma}^{noise}_{t,\tau}],
-$$
+```
 
-$$
+```math
 LB_{t,\tau}=\min(O_t,C_{t-1})[1-m\widehat{\sigma}^{noise}_{t,\tau}].
-$$
+```
 
 The implemented anchors use `prev_close_raw`. The separately calculated ex-dividend-adjusted previous close is not used for these bounds. A missing observation at a given clock time remains missing, including after historical early-close sessions. Cell 29 audits these cases.
 
@@ -38,13 +38,13 @@ The implemented anchors use `prev_close_raw`. The separately calculated ex-divid
 
 Section 3, pp. 9–10, describes half-hour decisions, opposite-band exits/reversals and intraday-only positions. Code cells 31–41 implement this first stage. At eligible completed bars ending at :00 or :30 before the close:
 
-$$
+```math
 d_{t,\tau}=\begin{cases}
 +1,&C_{t,\tau}>UB_{t,\tau},\\
 -1,&C_{t,\tau}<LB_{t,\tau},\\
-d_{t,\tau^-},&\text{inside the noise area}.
+d_{t,\tau^{-}},&\text{inside the noise area}.
 \end{cases}
-$$
+```
 
 Positions start flat each day. Invalid bounds select flat rather than manufacturing a signal. Fixed-size daily shares are $Q_t=\lfloor E_{t-1}/O_t\rfloor$; the quantity remains fixed within that day.
 
@@ -52,14 +52,14 @@ The notebook evaluates completed-bar closes and uses the **next minute's open** 
 
 For an order changing signed shares by $\Delta Q$, with reference price $P$, commission $c=0.0035$ and adverse slippage $s=0.001$ dollars/share:
 
-$$
-P^{fill}=P+\operatorname{sign}(\Delta Q)s,
+```math
+P^{fill}=P+\mathrm{sign}(\Delta Q)s,
 \qquad Fee=c|\Delta Q|,
-$$
+```
 
-$$
+```math
 \Delta Cash=-\Delta QP^{fill}-Fee.
-$$
+```
 
 A reversal from $+Q$ to $-Q$ trades $2Q$ shares and pays proportional costs on all of them. No financing, borrow fee, minimum commission or volume-dependent impact is added.
 
@@ -67,20 +67,20 @@ A reversal from $+Q$ to $-Q$ trades $2Q$ shares and pays proportional costs on a
 
 The paper's VWAP stops appear on p. 13:
 
-$$
+```math
 Stop^{long}_{t,\tau}=\max(UB_{t,\tau},VWAP_{t,\tau}),
 \qquad Stop^{short}_{t,\tau}=\min(LB_{t,\tau},VWAP_{t,\tau}).
-$$
+```
 
 Code cells 43–49 use the approximate VWAP above. The notebook operationalizes the rule by explicitly selecting a new direction at every decision:
 
-$$
+```math
 d_{t,\tau}=\begin{cases}
 +1,&C_{t,\tau}>\max(UB_{t,\tau},\widetilde{VWAP}_{t,\tau}),\\
 -1,&C_{t,\tau}<\min(LB_{t,\tau},\widetilde{VWAP}_{t,\tau}),\\
 0,&\text{otherwise}.
 \end{cases}
-$$
+```
 
 This applies VWAP to **entry eligibility as well as exits**; it is an explicit convention beyond simply quoting the paper's stop formulas. It also differs from the baseline's inside-band hold rule. Original fills and costs are preserved.
 
@@ -88,15 +88,15 @@ This applies VWAP to **entry eligibility as well as exits**; it is an explicit c
 
 The paper's sizing enhancement appears on p. 15. Code cells 51–59 calculate the sample standard deviation of the prior 14 raw daily close-to-close returns, excluding the current session:
 
-$$
+```math
 \widehat{\sigma}^{daily}_t
-=\operatorname{Std}_{ddof=1}(r_{t-14},\ldots,r_{t-1}),
+=\mathrm{Std}_{ddof=1}(r_{t-14},\ldots,r_{t-1}),
 \qquad \ell_t=\min\left(4,\frac{0.02}{\widehat{\sigma}^{daily}_t}\right),
-$$
+```
 
-$$
+```math
 Q_t=\left\lfloor\frac{E_{t-1}\ell_t}{O_t}\right\rfloor.
-$$
+```
 
 An unavailable/nonpositive volatility estimate leads to a cash day. The daily wrapper uses an effective budget for share sizing and transfers only dollar P&L to actual equity; it does not create an artificial daily capital reset. Cell 55's saved output reports a passed fixed-1× regression check.
 
@@ -110,17 +110,17 @@ The fixed paper rules need no model fitting. The project adds chronological eval
 | 2021 | Validation: select checkpoints and entry thresholds | 252 |
 | 2022 through 2024-04-30 | Historical test comparison | 584 |
 
-The paper strategy's broader `train` table combines development and validation: 1,472 sessions. Development performance for fitted models is in-sample. The plots restart displayed equity at $100,000 within each panel using already calculated daily returns; the underlying portfolio replay compounds through the evaluation history.
+The paper strategy's broader `train` table combines development and validation: 1,472 sessions. Development performance for fitted models is in-sample. The plots restart displayed equity at \$100,000 within each panel using already calculated daily returns; the underlying portfolio replay compounds through the evaluation history.
 
 ## 6. ER entry filter: rule-based experiment
 
 Code cells 62–74 define the Efficiency Ratio on the most recent 30 completed minute closes:
 
-$$
+```math
 ER_{t,\tau}=
 \frac{|C_{last}-C_{first}|}
 {\sum_{u\in window}|C_u-C_{u-1}|}.
-$$
+```
 
 The filter accepts a new nonzero direction only when $ER\ge h$. Existing same-direction positions keep following the original exit logic. If a proposed reversal is rejected, the existing position closes; it is not retained through a rejected opposite signal.
 
@@ -132,18 +132,18 @@ Code cells 76–100 retain the original entry/exit strategy and learn a daily ri
 
 A one-layer LSTM with 16 hidden units and a sigmoid head gives $0<w_t<1$:
 
-$$
-w_t=\operatorname{sigmoid}(a^Th_{t-1}+b),
+```math
+w_t=\mathrm{sigmoid}(a^Th_{t-1}+b),
 \qquad Q_t=\left\lfloor\frac{E_{t-1}\ell_tw_t}{O_t}\right\rfloor.
-$$
+```
 
 Training uses a differentiable net-return proxy before integer-share rounding:
 
-$$
-\mathcal L=-\sqrt{252}\frac{\operatorname{mean}(w_t\widetilde r_t)}
-{\max[\operatorname{Std}(w_t\widetilde r_t),10^{-6}]}
-+0.05\operatorname{mean}[(w_t-0.75)^2].
-$$
+```math
+\mathcal L=-\sqrt{252}\frac{\mathrm{mean}(w_t\widetilde r_t)}
+{\max[\mathrm{Std}(w_t\widetilde r_t),10^{-6}]}
++0.05\mathrm{mean}[(w_t-0.75)^2].
+```
 
 Validation replays integer shares and original per-share costs. The best validation portfolio Sharpe selects the checkpoint; the saved run selects **epoch 80** with printed Sharpe **1.805**. The all-ones replay check reports agreement with the volatility-target baseline.
 
@@ -155,9 +155,9 @@ Code cells 102–122 build a 30-minute, seven-channel sequence ending at each no
 
 For direction $d$, next-open entry $P^{entry}$ and the exit under the unfiltered original direction logic:
 
-$$
+```math
 y=10^4\frac{d(P^{exit}-P^{entry})-2(c+s)}{P^{entry}}.
-$$
+```
 
 Labels end within the same session. Development-only channel imputation/scaling is clipped to $[-8,8]$. The causal TCN has three residual blocks, each with two left-padded kernel-3 convolutions, 16 channels and dilation 1, 2 or 4. Smooth-L1 validation prediction loss selects **epoch 5**. A Ridge regression with $\alpha=10$ sees the same flattened $30\times7$ inputs and targets.
 
@@ -169,21 +169,22 @@ The saved TCN selects **All entries**, reproducing the baseline. Ridge selects *
 
 Code cell 35 defines daily-net-return metrics. With $N$ observations and normalized equity $W_0=1$, $W_t=\prod_{i=1}^{t}(1+r_i)$:
 
-$$
+```math
 TotalReturn=W_N-1,\qquad CAGR=W_N^{252/N}-1,
-$$
+```
 
-$$
-Vol=\sqrt{252}\operatorname{Std}_{ddof=1}(r),
-\qquad Sharpe=\sqrt{252}\frac{\operatorname{mean}(r)}{\operatorname{Std}_{ddof=1}(r)},
-$$
+```math
+Vol=\sqrt{252}\mathrm{Std}_{ddof=1}(r),
+\qquad Sharpe=\sqrt{252}\frac{\mathrm{mean}(r)}{\mathrm{Std}_{ddof=1}(r)},
+```
 
-$$
+```math
 MDD=\min_t\left(\frac{W_t}{\max_{0\le u\le t}W_u}-1\right).
-$$
+```
 
 Cash/no-trade days remain in the common calendar. The SPY benchmark uses adjusted daily returns, without modeled trading costs.
 
 For session completeness, the current replay checks the entire day's minute grid before trading and makes incomplete-price sessions cash days. That check uses end-of-session information and is a **retrospective data-quality convention**. It is not a causal policy for handling an unexpected live feed outage. A future live-style test needs a missing-data policy applied as bars arrive and a fresh evaluation sample.
 
 The repository preserves these choices and saved findings. It does not convert them into a claim of exact paper-table replication or newly verified out-of-sample improvement.
+
