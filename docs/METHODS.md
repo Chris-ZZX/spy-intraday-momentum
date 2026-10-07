@@ -43,7 +43,6 @@ d_{t,\tau}=\begin{cases}
 +1,&C_{t,\tau}>UB_{t,\tau},\\
 -1,&C_{t,\tau}<LB_{t,\tau},\\
 d_{t,\tau^{-}},&\text{inside the noise area}.
-\end{cases}
 ```
 
 Positions start flat each day. Invalid bounds select flat rather than manufacturing a signal. Fixed-size daily shares are $Q_t=\lfloor E_{t-1}/O_t\rfloor$; the quantity remains fixed within that day.
