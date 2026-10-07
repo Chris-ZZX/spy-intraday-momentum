@@ -89,8 +89,7 @@ python scripts/download_data.py
 python scripts/export_saved_results.py
 ```
 
-Full data preparation, cache reuse, missing-minute handling and dependency limitations are described in [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). To publish this folder, see [上传步骤](docs/UPLOAD.md).
-
+Full data preparation, cache reuse, missing-minute handling and dependency limitations are described in [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). 
 ## Repository contents
 
 - `Strategy.ipynb` — primary implementation and explanation.
