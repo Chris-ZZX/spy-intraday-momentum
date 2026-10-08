@@ -1,0 +1,86 @@
+[
+  {
+    "file": "figures/01_opposite_band_equity.png",
+    "source_cell_index": 39,
+    "source_output_index": 0,
+    "sha256": "f34f74252a01e8e356abbf26bb5392ece13d60e16d64f515a0e87bd88fe8a553",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/02_opposite_band_metrics.png",
+    "source_cell_index": 41,
+    "source_output_index": 0,
+    "sha256": "4d1857e1d5c64d30075e3fec7e864e15fcf1662ed82cf2e2d528f90f5598791b",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/03_vwap_exit_equity.png",
+    "source_cell_index": 49,
+    "source_output_index": 0,
+    "sha256": "07b34ed1886ac542149278c309e19b3dd6cfd06fa70b59cd110efc0dc13572c0",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/04_vwap_exit_metrics.png",
+    "source_cell_index": 49,
+    "source_output_index": 1,
+    "sha256": "a41ab0b1ffb9d288720a399a9bf970f9ed19fb8f69d0eaf42455c42ce828154b",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/05_volatility_sizing_equity.png",
+    "source_cell_index": 59,
+    "source_output_index": 0,
+    "sha256": "427f4351d000e96f2eeffa433b078c19188f1f69fc8b968642df4023f3c22bbb",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/06_volatility_sizing_metrics.png",
+    "source_cell_index": 59,
+    "source_output_index": 1,
+    "sha256": "2fa0c4144c83cd800cb306a24de5375f42b4215f95a4d8251874b40a0e827bb6",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/07_er_filter_equity.png",
+    "source_cell_index": 72,
+    "source_output_index": 0,
+    "sha256": "fdc079a71271a79f5d63704885381681d953cf6729c0cafca17dfbef1f1ca0b1",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/08_er_filter_metrics.png",
+    "source_cell_index": 72,
+    "source_output_index": 1,
+    "sha256": "c873ff15b71ed9932d33d69ef60d1e6705f766758a14a831e5db42cedf7532c7",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/09_lstm_equity.png",
+    "source_cell_index": 98,
+    "source_output_index": 0,
+    "sha256": "06923b33f51251c187db97555e0b7086848059972e9eed8753a637c1b1517be9",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/10_lstm_allocation.png",
+    "source_cell_index": 98,
+    "source_output_index": 1,
+    "sha256": "b6afbe168ff60d020899e83fec2a7de521f4dfd8c9dca7cb6691be165adafcbc",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/11_tcn_ridge_equity.png",
+    "source_cell_index": 122,
+    "source_output_index": 0,
+    "sha256": "f6eb7a68ccb3ae01027d757b95a3032f2303e9aec04ae168f575ca2110ad21d7",
+    "status": "Original saved figure, preserved byte-for-byte."
+  },
+  {
+    "file": "figures/12_paper_and_entry_models_equity.png",
+    "source_cell_index": 126,
+    "source_output_index": 0,
+    "sha256": "cb84d39513f3edab2881d63ff054ad5d7e0e3179f16b6ce5683c2208dc17664e",
+    "status": "Original saved figure, preserved byte-for-byte."
+  }
+]

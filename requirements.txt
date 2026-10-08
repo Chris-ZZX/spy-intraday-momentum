@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+requests
+alpaca-py
+pandas-market-calendars
+python-dotenv
+nbformat
+nbconvert
+nbclient
+ipykernel

@@ -1,0 +1,30 @@
+{
+  "review_date": "2026-10-08",
+  "review_python_version": "3.12.14",
+  "review_dependency_versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "nbformat": "5.11.1",
+    "nbconvert": "7.17.1",
+    "pytest": "9.1.1"
+  },
+  "notebook_schema_and_python_syntax": "passed: 146 cells, 70 code cells",
+  "original_png_hashes": "passed: 12 byte-for-byte original payloads",
+  "saved_performance_consistency": "passed: 30 rows; common 584-session test calendar",
+  "synthetic_replay_tests": "7 passed in 1.51 seconds",
+  "original_core_function_source": "passed: preserved verbatim",
+  "english_text_and_local_document_links": "passed",
+  "read_only_html": "passed: 13 embedded PNGs, complete overview table and ordered final sections",
+  "overview_visual_inspection": "passed: readable labels, values and provenance note",
+  "output_export_script": "passed: 13 PNGs and saved console outputs exported",
+  "runner_cli": "help works; missing CSV inputs fail early with a named-input message",
+  "standalone_notebook_matches_repository_copy": true,
+  "not_run": [
+    "Full-SPY replay: original CSV inputs not supplied",
+    "Alpaca API download: no credentials or feed authorization used",
+    "LSTM/TCN retraining and Ridge refitting",
+    "Full-SPY persistence, shock-control, ablation and cost-grid experiments",
+    "Hosted GitHub Actions execution"
+  ]
+}

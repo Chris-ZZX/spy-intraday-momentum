@@ -1,0 +1,20 @@
+{
+  "er_threshold": 0.0,
+  "er_validation_sharpe": 1.652008,
+  "er_maximum_daily_return_difference": 8.673617379884035e-19,
+  "lstm_selected_epoch": 80,
+  "lstm_best_validation_sharpe": 1.805,
+  "lstm_development_average_allocation": 0.5839,
+  "lstm_validation_average_allocation": 0.6448,
+  "lstm_test_average_allocation": 0.6741,
+  "tcn_selected_epoch": 5,
+  "tcn_entry_threshold": null,
+  "tcn_entry_threshold_label": "All entries",
+  "ridge_entry_threshold_bps": 2.0,
+  "development_sessions": 1220,
+  "validation_sessions": 252,
+  "historical_test_sessions": 584,
+  "pending_extensions_executed_on_spy": false,
+  "source_sha256": "40b913ad804d208fffb7c9358e33f72a7339cf0b41b502a9b2eb41146b2bb0b0",
+  "precision": "Values are recovered from the notebook's printed saved outputs."
+}

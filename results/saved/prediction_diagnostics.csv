@@ -1,0 +1,5 @@
+period,model,samples,rank_correlation,mean_prediction_bps,mean_actual_bps
+validation,Ridge,844,-0.0456,2.7342,-1.9714
+test,Ridge,1950,0.0057,1.0701,6.9564
+validation,TCN,844,0.1588,-3.912,-1.9714
+test,TCN,1950,0.0667,-5.571,6.9564

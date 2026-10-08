@@ -1,0 +1,25 @@
+{
+  "source_notebook": "Strategy(3)(1).ipynb",
+  "source_sha256": "40b913ad804d208fffb7c9358e33f72a7339cf0b41b502a9b2eb41146b2bb0b0",
+  "review_date": "2026-10-08",
+  "original_saved_png_count": 12,
+  "saved_tables_read": [
+    68,
+    74,
+    86,
+    92,
+    94,
+    96,
+    100,
+    110,
+    114,
+    118,
+    120,
+    124
+  ],
+  "full_spy_replay_rerun": false,
+  "pending_persistence_and_shock_control_full_spy_results": false,
+  "source_csvs_available_during_review": false,
+  "core_trade_rule_source_preserved": true,
+  "reported_metrics_precision": "Rounded printed output"
+}

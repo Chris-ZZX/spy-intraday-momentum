@@ -1,0 +1,31 @@
+period,strategy,days,total_return,annual_return,annual_volatility,sharpe,max_drawdown,source_cell_index,provenance
+development,Opposite band,1220,0.0232,0.004699999999999999,0.0882,0.098,-0.13019999999999998,124,Printed saved output; rounded at source.
+development,Band + VWAP,1220,0.1303,0.0256,0.068,0.406,-0.1241,124,Printed saved output; rounded at source.
+development,Band + VWAP + Vol target,1220,0.514,0.0894,0.14300000000000002,0.669,-0.2572,124,Printed saved output; rounded at source.
+development,ER entry filter,1220,0.514,0.0894,0.14300000000000002,0.669,-0.2572,74,Derived from the saved h=0 selection and saved full-calendar maximum return difference of 8.67e-19; not a new backtest.
+development,LSTM risk allocation,1220,0.4068,0.0731,0.08779999999999999,0.846,-0.1264,96,Printed saved output; rounded at source.
+development,Ridge return filter,1220,1.2803,0.1856,0.127,1.403,-0.12210000000000001,124,Printed saved output; rounded at source.
+development,TCN return filter,1220,0.514,0.0894,0.14300000000000002,0.669,-0.2572,124,Printed saved output; rounded at source.
+development,SPY buy & hold,1220,1.1115000000000002,0.16690000000000002,0.1826,0.938,-0.3379,124,Printed saved output; rounded at source.
+development,Constant 50%,1220,0.2452,0.0463,0.07150000000000001,0.669,-0.1356,96,Printed saved output; rounded at source.
+development,Constant matched allocation,1220,0.2888,0.0538,0.08349999999999999,0.669,-0.157,96,Printed saved output; rounded at source.
+validation,Opposite band,252,0.067,0.067,0.0661,1.014,-0.050300000000000004,124,Printed saved output; rounded at source.
+validation,Band + VWAP,252,0.09380000000000001,0.09380000000000001,0.049699999999999994,1.831,-0.0236,124,Printed saved output; rounded at source.
+validation,Band + VWAP + Vol target,252,0.2729,0.2729,0.1531,1.653,-0.060599999999999994,124,Printed saved output; rounded at source.
+validation,ER entry filter,252,0.2729,0.2729,0.1531,1.653,-0.060599999999999994,74,Derived from the saved h=0 selection and saved full-calendar maximum return difference of 8.67e-19; not a new backtest.
+validation,LSTM risk allocation,252,0.20550000000000002,0.20550000000000002,0.1067,1.805,-0.0416,96,Printed saved output; rounded at source.
+validation,Ridge return filter,252,0.2195,0.2195,0.11779999999999999,1.743,-0.0738,124,Printed saved output; rounded at source.
+validation,TCN return filter,252,0.2729,0.2729,0.1531,1.653,-0.060599999999999994,124,Printed saved output; rounded at source.
+validation,SPY buy & hold,252,0.28600000000000003,0.28600000000000003,0.12960000000000002,2.007,-0.051100000000000007,124,Printed saved output; rounded at source.
+validation,Constant 50%,252,0.1313,0.1313,0.0765,1.651,-0.030600000000000002,96,Printed saved output; rounded at source.
+validation,Constant matched allocation,252,0.1545,0.1545,0.0894,1.652,-0.035699999999999996,96,Printed saved output; rounded at source.
+test,Opposite band,584,0.2805,0.11259999999999999,0.1017,1.1,-0.08929999999999999,124,Printed saved output; rounded at source.
+test,Band + VWAP,584,0.32630000000000003,0.12960000000000002,0.07150000000000001,1.74,-0.0467,124,Printed saved output; rounded at source.
+test,Band + VWAP + Vol target,584,0.838,0.3004,0.1349,2.015,-0.09949999999999999,124,Printed saved output; rounded at source.
+test,ER entry filter,584,0.838,0.3004,0.1349,2.015,-0.09949999999999999,74,Derived from the saved h=0 selection and saved full-calendar maximum return difference of 8.67e-19; not a new backtest.
+test,LSTM risk allocation,584,0.5105,0.1948,0.0926,1.969,-0.0759,96,Printed saved output; rounded at source.
+test,Ridge return filter,584,0.5726,0.2158,0.1137,1.775,-0.0711,124,Printed saved output; rounded at source.
+test,TCN return filter,584,0.838,0.3004,0.1349,2.015,-0.09949999999999999,124,Printed saved output; rounded at source.
+test,SPY buy & hold,584,0.09369999999999999,0.0394,0.18600000000000003,0.301,-0.245,124,Printed saved output; rounded at source.
+test,Constant 50%,584,0.3625,0.14279999999999998,0.0674,2.015,-0.0506,96,Printed saved output; rounded at source.
+test,Constant matched allocation,584,0.4336,0.16820000000000002,0.0787,2.015,-0.058899999999999994,96,Printed saved output; rounded at source.
